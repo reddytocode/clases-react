@@ -9,9 +9,8 @@ const Header = () => (
     </a>
 
     <p></p>
-    <p>Investigación Operativa - Metodo Simplex</p>
-    
-    
+    <p>Investigación Operativa - Metodo Simplex</p> 
+    <p>ALF BANDA QUISPE LUIS </p>
     <br />
   </header>
 );

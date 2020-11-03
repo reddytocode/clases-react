@@ -91,12 +91,11 @@ function App() {
       <Content id="content">
         <strong>
           Ingrese las cantidad de variables de decisión y de restricciones
-          necesarias ssss
         </strong>
         <br />
         <Row>
           <Col span={7} offset={7}>
-            Cantidad de variables hola como es:
+            Cantidad de variables:
           </Col>
           <Col span={2}>
             <InputNumber id="num_variables" min={2} max={10} />
