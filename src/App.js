@@ -3,7 +3,13 @@ import { Button, Radio, Row, Col, Layout, InputNumber, Modal } from "antd";
 import "./assets/App.css";
 import "./assets/Basic.css";
 import "./assets/Home.css";
+
 import Header from "./components/Header";
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 const { Content, Footer } = Layout;
 
@@ -18,14 +24,28 @@ var es_decimal = false;
 
 function App() {
   let [activarBoton, setActivarBoton] = useState(false);
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const generarInputs = () => {
-    setActivarBoton(true);
+  
     numero_variables = parseInt(document.getElementById("num_variables").value);
     numero_restricciones = parseInt(
       document.getElementById("num_restricciones").value
     );
-
+    const nro_var_existe = numero_variables>0;
+    const nro_restricciones_existe = numero_restricciones>0;
+    if(!nro_var_existe || !nro_restricciones_existe ){
+      handleClickOpen();
+    }else{
+      setActivarBoton(true);
     var str_table_inputs = "";
 
     document.getElementById("maximizar").checked === true
@@ -85,11 +105,33 @@ function App() {
     str_table_inputs += "</table>";
     document.getElementById("table_inputs").innerHTML = str_table_inputs;
     clic_generar = true;
+  
+    }
   };
 
   return (
     <Layout className="App">
-      
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">{"Cantidades Incorrectas"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Ingrese la Cantidad de variables y la Cantidad de restricciones correctamente. Deben ser números mayores a 0.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="red">
+            Cancelar
+          </Button>
+          <Button onClick={handleClose} color="primary" autoFocus>
+            Ok
+          </Button>
+        </DialogActions>
+      </Dialog>
       <Header />
       <br />
       <Content id="content">
@@ -132,13 +174,13 @@ function App() {
         <Row>
           <Col span={7} offset={5}>
             <Button type="primary" shape="round" onClick={generarInputs}>
-              Generar Inputs
+              Introducir Valores de la Matriz
             </Button>
           </Col>
           {activarBoton&&
           <Col span={7}>
             <Button type="primary" shape="round" onClick={resolverEjercicio}>
-              Resolver Ejercicio
+              Resolver
             </Button>
           </Col>
           }
