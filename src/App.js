@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import { Button, Radio, Row, Col, Layout, InputNumber, Modal } from "antd";
 import "./assets/App.css";
 import "./assets/Basic.css";
 import "./assets/Home.css";
 import Header from "./components/Header";
+
 const { Content, Footer } = Layout;
 
 var array_problema = [];
@@ -16,7 +17,10 @@ var clic_generar = false;
 var es_decimal = false;
 
 function App() {
+  let [activarBoton, setActivarBoton] = useState(false);
+
   const generarInputs = () => {
+    setActivarBoton(true);
     numero_variables = parseInt(document.getElementById("num_variables").value);
     numero_restricciones = parseInt(
       document.getElementById("num_restricciones").value
@@ -93,6 +97,7 @@ function App() {
           Ingrese las cantidad de variables de decisión y de restricciones
         </strong>
         <br />
+        <p></p>
         <Row>
           <Col span={7} offset={7}>
             Cantidad de variables:
@@ -101,6 +106,7 @@ function App() {
             <InputNumber id="num_variables" min={2} max={10} />
           </Col>
         </Row>
+        <p></p>
         <Row>
           <Col span={7} offset={7}>
             Cantidad de restricciones:
@@ -109,9 +115,10 @@ function App() {
             <InputNumber id="num_restricciones" min={1} max={10} />
           </Col>
         </Row>
+        <p></p>
         <br />
         <strong>¿Qué desea hacer con la función objetivo? </strong>
-        <Row>
+        <Col>
           <Radio.Group name="radiogroup" defaultValue={1}>
             <Radio value={1} id="maximizar" name="tipo_operacion">
               Maximizar
@@ -120,7 +127,7 @@ function App() {
               Minimizar
             </Radio>
           </Radio.Group>
-        </Row>
+        </Col>
         <br />
         <Row>
           <Col span={7} offset={5}>
@@ -128,11 +135,14 @@ function App() {
               Generar Inputs
             </Button>
           </Col>
+          {activarBoton&&
           <Col span={7}>
             <Button type="primary" shape="round" onClick={resolverEjercicio}>
               Resolver Ejercicio
             </Button>
           </Col>
+          }
+          
         </Row>
         <br />
         <div id="table_inputs"> </div>
