@@ -25,6 +25,18 @@
   color: rgb(7, 179, 50);
 }
 
+.App-header-horizontal {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.Alferez-right {
+  margin-left: 700px;
+}
+
+
+
 .App-link {
   color: #27829b;
   text-decoration: none;

@@ -143,7 +143,16 @@ function App() {
       <br />
       <br />
       <br />
-      <Footer>© 2020</Footer>
+      <Footer>
+        <Row>
+          <Col span={6} offset={5}>
+            <div>© 2020 </div>
+          </Col>
+          <Col span={6}>
+            <div >ALF BANDA QUISPE LUIS </div>
+          </Col>
+        </Row>
+      </Footer>
     </Layout>
   );
 }
