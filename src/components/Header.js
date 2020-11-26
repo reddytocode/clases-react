@@ -10,9 +10,9 @@ const Header = () => (
 
     <p></p>
     <p>Investigación Operativa - Metodo Simplex</p> 
-    
-
     <br />
+
+    
   </header>
 );
 

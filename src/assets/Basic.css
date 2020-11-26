@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Helvetica, Arial, sans-serif;
-  color: #666;
+  color: rgb(6, 146, 189);
   background: #f2f2f2;
   font-size: 1em;
   line-height: 1.5em;
@@ -20,8 +20,8 @@ html {
 .ant-layout-footer {
   bottom: 0;
   position: relative;
-  background-color: #20232a;
-  color: white;
+  background-color: #021741;
+  color: rgb(224, 248, 3);
   width: 100%;
 }
 

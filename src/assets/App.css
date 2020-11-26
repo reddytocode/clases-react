@@ -22,7 +22,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: rgb(7, 179, 50);
+  color: rgb(250, 235, 19);
 }
 
 .App-header-horizontal {
@@ -38,7 +38,7 @@
 
 
 .App-link {
-  color: #27829b;
+  color: #0ebcec;
   text-decoration: none;
 }
 

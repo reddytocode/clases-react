@@ -172,13 +172,13 @@ function App() {
         </Col>
         <br />
         <Row>
-          <Col span={7} offset={5}>
+          <Col span={7} offset={2}>
             <Button type="primary" shape="round" onClick={generarInputs}>
               Introducir Valores de la Matriz
             </Button>
           </Col>
           {activarBoton&&
-          <Col span={7}>
+          <Col span={3}offset={15}>
             <Button type="primary" shape="round" onClick={resolverEjercicio}>
               Resolver
             </Button>
@@ -197,11 +197,13 @@ function App() {
       <br />
       <Footer>
         <Row>
-          <Col span={6} offset={5}>
-            <div>© 2020 </div>
+          <Col span={7} offset={6}>
+            <div> Integrantes 2020 </div>
           </Col>
-          <Col span={6}>
-            <div >ALF BANDA QUISPE LUIS </div>
+          <Col span={7}>
+            <div >SBTTE Milenka Gutierrez  </div>
+            <div >SBTTE Monica Medina </div>
+            <div >ALF Luis Banda  </div>
           </Col>
         </Row>
       </Footer>
@@ -336,7 +338,7 @@ const generarSolucion = () => {
   if (cont_eses !== numero_restricciones) {
     imprimeTabla(tabla_a, numero_restricciones, total + 1);
     str_table =
-      "<br><div align = 'center'><br><h2>Tabla Con W prima</h2></div>";
+      "<br><div align = 'center'><br><h2>Tabla </h2></div>";
     document.getElementById("content").innerHTML += str_table;
     calcularWPrima(tabla_a);
     imprimeTabla(tabla_a, numero_restricciones, total + 1);
@@ -365,7 +367,7 @@ const primeraFase = matriz => {
     var entra_max, sale_min, hacer_uno;
     bandera = 0;
 
-    //Imprimimos el tabla actual
+    //Imprimimos la tabla actual
     var str_table =
       "<br><div align = 'center'><br><p>Iteración " + iteracion++ + "<p></div>";
     document.getElementById("content").innerHTML += str_table;
